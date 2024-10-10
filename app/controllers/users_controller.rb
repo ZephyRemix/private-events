@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
   def show
-    render
+    @user = current_user
   end
 end

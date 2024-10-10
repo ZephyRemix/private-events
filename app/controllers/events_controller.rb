@@ -3,6 +3,10 @@ class EventsController < ApplicationController
     @event = Event.all
   end
 
+  def show
+    @event = Event.find(params[:id])
+  end
+
   def new
     @event = Event.new
   end
@@ -11,7 +15,7 @@ class EventsController < ApplicationController
     @event = current_user.events_created.new(event_params)
     if @event.save
       flash[:success] = "Object successfully created"
-      redirect_to root_path
+      redirect_to @event
     else
       flash[:error] = "Something went wrong"
       render "new"
