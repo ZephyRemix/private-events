@@ -1,3 +1,16 @@
 <h1>My events page</h1>
 
+<h2>Upcoming events! 😎</h2>
+<% @user.attended_events.upcoming.each do |event| %>
+    <p><%= event.name %></p>
+<% end %>
+
+<h2>Past events 🥲</h2>
+<% @user.attended_events.past.each do |event| %>
+    <p><%= event.name %></p>
+<% end %>
+
+<br>
+
+<h1>Your hosted events</h1>
 <%= render "events/event_list", event: @user.events_created %>
